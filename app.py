@@ -5,7 +5,7 @@ from flask import Flask, session, render_template, request
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-from goodreads import client
+from modules.goodreads import client
 
 app = Flask(__name__)
 gc = client.GoodreadsClient("qkGrXa3h2ICsDDLIkeHsGg", "9JpS3VJ7lo2XEXImBkdnvg6Iz4wDBK0BJUKmdr6DiXk")
