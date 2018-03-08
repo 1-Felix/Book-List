@@ -1,7 +1,4 @@
 header {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(index.jpeg);
-    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(index.jpeg);
-    background-image: -o-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(index.jpeg);
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(index.jpeg);
     background-size: cover;
     background-position: center;
@@ -10,14 +7,12 @@ header {
 }
 
 .hero-box {
-  position: -webkit-sticky;
   position: sticky;
   width: 1140px;
   top: 45%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 @media only screen and (max-width: 1700px) {
@@ -26,8 +21,7 @@ header {
     top: 45%;
     left: 35%;
     -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 
   #title-size {
@@ -53,8 +47,7 @@ header {
     top: 45%;
     left: 35%;
     -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 
 }
@@ -89,8 +82,7 @@ header {
   top: 52%;
   left: 35%;
   -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 #scroll::-webkit-scrollbar {
   display: none;
@@ -144,6 +136,46 @@ header {
 	outline: none;
 	position: relative;
 	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
+	-moz-transition: all 0.3s;
 	transition: all 0.3s;
+  border: 1px solid #fff;
+	color: #fff;
+}
+
+.butn:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.butn-1a:hover,
+.butn-1a:active {
+	color: #36454f;
+	background: #fff;
+}
+
+/* Scroll Animation */
+
+.list-group {
+	-webkit-animation-name: move;
+	-webkit-animation-duration: 420s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: normal;
+	-webkit-animation-timing-function: linear;
+}
+
+.list-group:hover {
+	-webkit-animation-play-state: paused;
+}
+
+@-webkit-keyframes move {
+	0% {
+		margin-top: 50px;
+	}
+	100% {
+		margin-top: -10000px;
+	}
 }
