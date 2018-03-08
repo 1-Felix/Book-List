@@ -10,7 +10,7 @@ from goodreads import client
 app = Flask(__name__)
 gc = client.GoodreadsClient("qkGrXa3h2ICsDDLIkeHsGg", "9JpS3VJ7lo2XEXImBkdnvg6Iz4wDBK0BJUKmdr6DiXk")
 
-# Check for environment variable
+Check for environment variable
 if not os.getenv("DATABASE_URL"):
     raise RuntimeError("DATABASE_URL is not set")
 
