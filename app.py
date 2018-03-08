@@ -10,10 +10,6 @@ from goodreads import client
 app = Flask(__name__)
 gc = client.GoodreadsClient("qkGrXa3h2ICsDDLIkeHsGg", "9JpS3VJ7lo2XEXImBkdnvg6Iz4wDBK0BJUKmdr6DiXk")
 
-Check for environment variable
-if not os.getenv("DATABASE_URL"):
-    raise RuntimeError("DATABASE_URL is not set")
-
 # Configure session to use filesystem
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
