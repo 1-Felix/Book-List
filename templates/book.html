@@ -1,0 +1,69 @@
+{% extends "layout.html" %} {% block title %} {{ book.title }} {% endblock %} {% block css %}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/book.css') }}"> {% endblock %} {% block body %}
+
+<h1 id="bookDetails">Book Details</h1>
+<h1 id="title">{{ book.title }}</h1>
+<div class="ratingDiv">
+  <p>Rating: {{ api_book.average_rating | float() | round(1) }}/5 &nbsp;</p>
+  <div class="rating" data-rating="{{ api_book.average_rating }}">
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <div class="overlay">
+    </div>
+  </div>
+</div>
+
+
+<img src="{{ api_book.image_url }}" alt="bookcover_img">
+
+<ul>
+  <li>
+    <input type="checkbox" checked>
+    <i></i>
+    <h2>Book Description</h2>
+    <p>{{ api_book.description | safe }}</p>
+  </li>
+  <li>
+    <input type="checkbox" checked>
+    <i></i>
+    <h2>More Infos</h2>
+    <p>
+      <br>
+      <span class=label>Author: </span>{{ api_book.authors[0] }}<br><br>
+      <span class=label>Average Rating: </span>{{ api_book.average_rating }}<br><br>
+      <span class=label>Number of Pages: </span>{{ api_book.num_pages }}<br><br>
+      <span class=label>Release: </span>{{ book.year }}<br><br>
+      <span class=label>ISBN: </span>{{ api_book.isbn }}<br><br>
+      <span class=label>Link: </span><a href="{{ api_book.link }}">Visit the Book on Goodreads.com</a>
+    </p>
+  </li>
+</ul>
+
+<script>
+  $('.rating').each(
+    function(i) {
+      var rating = $(this).attr('data-rating');
+      rating = Number(rating);
+      if (rating == 0) {
+        var width = 0;
+        $(this).find('.fa-star').attr('class', 'fa fa-star-o')
+      } else {
+        var width = (5 - rating) / 5 * 100;
+      }
+      $(this).find('.overlay').css('width', width + '%');
+    })
+</script>
+{% endblock %}
+
+<!-- <h2>Passengers</h2>
+<ul>
+    {% for passenger in passengers %}
+        <li>{{ passenger.name }}</li>
+    {% else %}
+        <li>No passengers.</li>
+    {% endfor %}
+</ul> -->

@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Books Project
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/index.css') }}">
+{% endblock %}
+{% block body %}
+<script>
+$('#scroll').bind('mousewheel', function (e) {
+    $(this).scrollTop($(this).scrollTop() - e.originalEvent.wheelDeltaY);
+    //prevent page fom scrolling
+    return false;
+});
+
+</script>
+<header>
+  <div class="hero-box">
+    <h1 class="display-2" id="title-size">Book List
+      <small class="hero-small-text" id="title-size-min">Search for your favorite book</small>
+    </h1>
+    <form action="{{ url_for('books') }}" method="POST">
+        <div class="input-group">
+            <input id="booksInput" name="book_id" placeholder="Title or Author of a Book" autocomplete="off">
+            <button class="butn butn-1a">Look for it</button>
+        </div>
+    </form>
+  </div>
+
+    <div id="scroll">
+      <ul class="list-group">
+        {% for book in books %}
+        <div  class="box">
+          <li class="li-books-preview" value="{{ book.id }}" ><span class="bookTitle">"{{ book.title }}"</span> written by {{ book.author }} published in {{ book.year }}</li>
+        </div>
+        {% endfor %}
+      </ul>
+    </div>
+</header>
+<div class="container">
+</div>
+
+
+
+{% endblock %}

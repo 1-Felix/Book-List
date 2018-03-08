@@ -1,0 +1,255 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Flights
+{% endblock %}
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/books.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="title">Your Search Results</h1>
+
+    <section>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th class="tableHeaderLinks" id="table_ID">
+            ID
+          </th>
+          <th id="table_ISBN">
+            ISBN
+          </th>
+          <th id="table_Title">
+            Title
+          </th >
+          <th id="table_Author">
+            Author
+          </th>
+          <th id="table_Year">
+            Year
+          </th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content" id="sortById">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        {% for book in books %}
+            <tr>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.id }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.isbn }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink tableTitle" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.title }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.author }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.year }}
+                  </a>
+                </td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="tbl-content" id="sortByTitle">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        {% for book in sortTitle %}
+            <tr>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.id }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.isbn }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink tableTitle" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.title }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.author }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.year }}
+                  </a>
+                </td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="tbl-content" id="sortByAuthor">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        {% for book in sortAuthor %}
+            <tr>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.id }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.isbn }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink tableTitle" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.title }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.author }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.year }}
+                  </a>
+                </td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="tbl-content" id="sortByYear">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        {% for book in sortYear %}
+            <tr>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.id }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.isbn }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink tableTitle" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.title }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.author }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.year }}
+                  </a>
+                </td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="tbl-content" id="sortByIsbn">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        {% for book in sortISBN %}
+            <tr>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.id }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.isbn }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink tableTitle" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.title }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.author }}
+                  </a>
+                </td>
+                <td>
+                  <a class="tableLink" href="{{ url_for('book', book_id=book.id) }}">
+                      {{ book.year }}
+                  </a>
+                </td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script>
+
+$("#table_ID").click(function(){
+    $("#sortById").show();
+    $("#sortByTitle").hide();
+    $("#sortByAuthor").hide();
+    $("#sortByYear").hide();
+    $("#sortByIsbn").hide();
+
+});
+$("#table_ISBN").click(function(){
+    $("#sortById").show();
+    $("#sortByTitle").hide();
+    $("#sortByAuthor").hide();
+    $("#sortByYear").hide();
+    $("#sortByIsbn").hide();
+});
+$("#table_Title").click(function(){
+    $("#sortById").hide();
+    $("#sortByTitle").show();
+    $("#sortByAuthor").hide();
+    $("#sortByYear").hide();
+    $("#sortByIsbn").hide();
+});
+$("#table_Author").click(function(){
+    $("#sortById").hide();
+    $("#sortByTitle").hide();
+    $("#sortByAuthor").show();
+    $("#sortByYear").hide();
+    $("#sortByIsbn").hide();
+});
+$("#table_Year").click(function(){
+    $("#sortById").hide();
+    $("#sortByTitle").hide();
+    $("#sortByAuthor").hide();
+    $("#sortByYear").show();
+    $("#sortByIsbn").hide();
+});
+
+</script>
+{% endblock %}
